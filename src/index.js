@@ -1,6 +1,5 @@
-const express = require('express')
+require('dotenv').config()
+const app = require('./app')
+const { PORT } = require('./config/env')
 
-const app = express()
-app.use(express.json())
-
-module.exports = { app }
+app.listen(PORT)

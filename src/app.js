@@ -1,8 +1,10 @@
-require('dotenv').config()
-const { app } = require('./index')
+const express = require('express')
 const { accountController } = require('./controllers/account-controller')
 
+const app = express()
+
+app.use(express.json())
 app.get('/accounts', accountController.index)
 app.post('/accounts', accountController.store)
 
-app.listen(process.env.PORT)
+module.exports = app
