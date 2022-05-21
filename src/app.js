@@ -1,15 +1,8 @@
 require('dotenv').config()
-const express = require('express')
-const app = express()
-app.use(express.json())
+const { app } = require('./index')
+const { accountController } = require('./controllers/account-controller')
 
-const PORT = process.env.PORT ?? 3000
+app.get('/accounts', accountController.index)
+app.post('/accounts', accountController.store)
 
-app.get('/', (req, res) => {
-    res.send({message: 'Hello World'})
-})
-
-
-app.listen(PORT, () => {
-    console.log(`App is running on port ${PORT}`)
-})
+app.listen(process.env.PORT)
