@@ -10,3 +10,4 @@ exports.GENERATED_GOOGLE_PASSWORD = env
   .required()
   .asString()
 exports.TRANSPORTER_NICKNAME = env.get('TRANSPORTER_NICKNAME').asString()
+exports.SECRET = env.get('SECRET').required().asString()
