@@ -1,7 +1,5 @@
 'use strict'
 const { Model } = require('sequelize')
-const bcrypt = require('bcrypt')
-const { transporter, mailOptions } = require('../config/nodemailer')
 
 module.exports = (sequelize, DataTypes) => {
   class Account extends Model {
@@ -12,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       email: DataTypes.STRING,
       password: DataTypes.STRING,
+      hasEmailValidated: DataTypes.BOOLEAN,
     },
     {
       sequelize,
